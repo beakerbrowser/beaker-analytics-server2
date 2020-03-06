@@ -14,6 +14,7 @@ exports.up = async function (knex) {
 
   CREATE VIEW cohorts_retention AS
   SELECT
+    cohort,
     COUNT("userId") AS total,
     SUM(CAST(is_active_this_month AS integer)) AS still_active_this_month,
     SUM(CAST(is_active_this_week AS integer)) AS still_active_this_week
