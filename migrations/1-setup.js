@@ -1,7 +1,7 @@
 exports.up = async function (knex) {
   await knex.schema.createTable('pings', (table) => {
     table.increments('id').primary()
-    table.string('date').defaultTo(knex.fn.now())
+    table.timestamp('date').defaultTo(knex.fn.now())
     table.string('userId').notNullable().index()
     table.integer('isFirstPing')
     table.string('beakerVersion')
